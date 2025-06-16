@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import { Outfit } from "next/font/google";
 import Footer from "@/components/Footer";
-import "@/styles/index.css";
+import "../../styles/index.css";
 import { SiteParams } from "@/types";
 import { headers } from "next/headers";
 import { Suspense } from "react";
@@ -28,8 +28,8 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata({ params }: MetadataProps) {
-  const site =siteData;
-  const headersList = headers();
+  const site = siteData;
+  const headersList = await headers();
   const referer = headersList.get("referer");
 
   let domain: string;
@@ -41,10 +41,11 @@ export async function generateMetadata({ params }: MetadataProps) {
   } else {
     // For production you might want to use an environment variable.
     // For example: process.env.NEXT_PUBLIC_PROD_DOMAIN || "https://nexttravel.demo"
-    domain = process.env.NEXT_PUBLIC_PROD_DOMAIN || "https://nexttravel.joombooking.com";
+    domain =
+      process.env.NEXT_PUBLIC_PROD_DOMAIN ||
+      "https://nexttravel.joombooking.com";
   }
 
-  
   let siteParams: SiteParams = site.params && JSON.parse(site.params);
 
   //console.log('siteParams', siteParams);
@@ -103,9 +104,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-
- 
-
   return (
     <html lang={locale}>
       <body className={`bg-white text-base ${outfit.variable} font-sans`}>

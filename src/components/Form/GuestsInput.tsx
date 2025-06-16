@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React, { Fragment, useState } from 'react';
-import { Popover, Transition } from '@headlessui/react';
-import { FC } from 'react';
+import React, { Fragment, useState } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { FC } from "react";
 
-import ClearDataButton from './ClearDataButton';
-import { IconUserPlus } from '@/components/icons';
-import type { Route as NextRoute } from 'next';
-import NcInputNumber from './NcInputNumber';
-import { Button } from '../ui/button';
-import { useTranslations } from 'next-intl';
+import ClearDataButton from "./ClearDataButton";
+import { IconUserPlus } from "@/components/icons";
+import type { Route as NextRoute } from "next";
+import NcInputNumber from "./NcInputNumber";
+import { Button } from "../ui/button";
+import { useTranslations } from "next-intl";
 
 export type Route<T = string> = NextRoute;
 export type PathName = Route;
@@ -35,9 +35,9 @@ export interface GuestsInputProps {
 }
 
 const GuestsInput: FC<GuestsInputProps> = ({
-  fieldClassName = '[ nc-hero-field-padding ]',
-  className = '[ nc-flex-1 ]',
-  buttonSubmitHref = '/listing-stay-map',
+  fieldClassName = "[ nc-hero-field-padding ]",
+  className = "[ nc-flex-1 ]",
+  buttonSubmitHref = "/listing-stay-map",
   hasButtonSubmit = true,
   name,
   placeholder,
@@ -48,12 +48,12 @@ const GuestsInput: FC<GuestsInputProps> = ({
   min = 1,
   max = 15,
 }) => {
-  const t = useTranslations('tour');
+  const t = useTranslations("tour");
   const [guestTravelsInputValue, setGuestTravelsInputValue] = useState(
-    IsShowTravel ? 1 : 0
+    IsShowTravel ? 1 : 0,
   );
   const [guestAdultsInputValue, setGuestAdultsInputValue] = useState(
-    IsShowTravel ? 0 : 1
+    IsShowTravel ? 0 : 1,
   );
   const [guestChildrenInputValue, setGuestChildrenInputValue] = useState(0);
   const [guestInfantsInputValue, setGuestInfantsInputValue] = useState(0);
@@ -70,7 +70,7 @@ const GuestsInput: FC<GuestsInputProps> = ({
       guestChildren: guestChildrenInputValue,
       guestInfants: guestInfantsInputValue,
     };
-    if (type === 'guestTravels') {
+    if (type === "guestTravels") {
       let total =
         newValue.guestChildren +
         newValue.guestInfants +
@@ -98,7 +98,7 @@ const GuestsInput: FC<GuestsInputProps> = ({
       setGuestTravelsInputValue(value);
       newValue.guestTravels = value;
     }
-    if (type === 'guestAdults') {
+    if (type === "guestAdults") {
       let total =
         newValue.guestChildren +
         newValue.guestInfants +
@@ -126,7 +126,7 @@ const GuestsInput: FC<GuestsInputProps> = ({
       setGuestAdultsInputValue(value);
       newValue.guestAdults = value;
     }
-    if (type === 'guestChildren') {
+    if (type === "guestChildren") {
       let total =
         newValue.guestAdults +
         newValue.guestInfants +
@@ -154,7 +154,7 @@ const GuestsInput: FC<GuestsInputProps> = ({
       setGuestChildrenInputValue(value);
       newValue.guestChildren = value;
     }
-    if (type === 'guestInfants') {
+    if (type === "guestInfants") {
       let total =
         newValue.guestAdults +
         newValue.guestChildren +
@@ -204,40 +204,41 @@ const GuestsInput: FC<GuestsInputProps> = ({
   }
 
   return (
-    <Popover className={`flex relative ${className}`}>
+    <Popover className={`relative flex ${className}`}>
       {({ open, close }) => (
         <>
-          <div className={`flex-1 z-10 flex items-center focus:outline-none `}>
+          <div className={`z-10 flex flex-1 items-center focus:outline-hidden`}>
             <Popover.Button
-              className={`relative z-10 flex-1 flex text-left items-center [ nc-hero-field-padding ] rounded-lg ${fieldClassName} space-x-3 focus:outline-none`}>
+              className={`[ nc-hero-field-padding ] relative z-10 flex flex-1 items-center rounded-lg text-left ${fieldClassName} space-x-3 focus:outline-hidden`}
+            >
               <div className="text-neutral-300 dark:text-neutral-400">
-                <IconUserPlus className="w-5 h-5 fill-neutral-400 lg:w-7 lg:h-7" />
+                <IconUserPlus className="h-5 w-5 fill-neutral-400 lg:h-7 lg:w-7" />
               </div>
-              <div className="flex-grow">
+              <div className="grow">
                 <input
                   type="text"
-                  value={JSON.stringify(valules) || ''}
+                  value={JSON.stringify(valules) || ""}
                   name={name}
                   readOnly={true}
                   className="hidden"
                 />
-                <span className="font-normal line-clamp-1 xl:text-base">
+                <span className="line-clamp-1 font-normal xl:text-base">
                   {guestTravelsInputValue
-                    ? guestTravelsInputValue + ' ' + t('travels')
-                    : ''}
+                    ? guestTravelsInputValue + " " + t("travels")
+                    : ""}
                   {guestAdultsInputValue
-                    ? guestAdultsInputValue + ' ' + t('adults')
-                    : ''}
+                    ? guestAdultsInputValue + " " + t("adults")
+                    : ""}
                   {guestChildrenInputValue
-                    ? ', ' + guestChildrenInputValue + ' ' + t('children')
-                    : ''}
+                    ? ", " + guestChildrenInputValue + " " + t("children")
+                    : ""}
                   {guestInfantsInputValue
-                    ? ', ' + guestInfantsInputValue + ' ' + t('infants')
-                    : ''}
+                    ? ", " + guestInfantsInputValue + " " + t("infants")
+                    : ""}
                 </span>
                 {placeholder && (
-                  <span className="block mt-1 text-sm font-light leading-none text-neutral-400">
-                    {totalGuests ? t('guests') : t('add_guests')}
+                  <span className="mt-1 block text-sm leading-none font-light text-neutral-400">
+                    {totalGuests ? t("guests") : t("add_guests")}
                   </span>
                 )}
               </div>
@@ -256,7 +257,7 @@ const GuestsInput: FC<GuestsInputProps> = ({
           </div>
 
           {open && (
-            <div className="h-8 absolute self-center top-1/2 -translate-y-1/2 z-0 -left-0.5 right-0.5 bg-white dark:bg-neutral-800"></div>
+            <div className="absolute top-1/2 right-0.5 -left-0.5 z-0 h-8 -translate-y-1/2 self-center bg-white dark:bg-neutral-800"></div>
           )}
           <Transition
             as={Fragment}
@@ -265,23 +266,24 @@ const GuestsInput: FC<GuestsInputProps> = ({
             enterTo="opacity-100 translate-y-0"
             leave="transition ease-in duration-150"
             leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1">
-            <Popover.Panel className="absolute right-0 z-10 w-full sm:min-w-[340px] max-w-sm bg-white dark:bg-neutral-800 top-full mt-3 py-5 sm:py-6 px-4 sm:px-8 rounded-lg shadow-xl">
-              <div className="mb-5 text-sm text-text1">
-                {t('max_person', { max })}
+            leaveTo="opacity-0 translate-y-1"
+          >
+            <Popover.Panel className="absolute top-full right-0 z-10 mt-3 w-full max-w-sm rounded-lg bg-white px-4 py-5 shadow-xl sm:min-w-[340px] sm:px-8 sm:py-6 dark:bg-neutral-800">
+              <div className="text-text1 mb-5 text-sm">
+                {t("max_person", { max })}
               </div>
               {IsShowTravel && (
                 <NcInputNumber
                   className="w-full"
                   defaultValue={guestTravelsInputValue}
                   onChange={(value) =>
-                    handleChangeData(Number(value), 'guestTravels')
+                    handleChangeData(Number(value), "guestTravels")
                   }
                   isdisabled={disabled.guestTravels}
                   max={max}
                   min={min}
-                  label={t('traveler')}
-                  desc={t('travel_min_max', {
+                  label={t("traveler")}
+                  desc={t("travel_min_max", {
                     min_person: min,
                     max_person: max,
                   })}
@@ -292,44 +294,44 @@ const GuestsInput: FC<GuestsInputProps> = ({
                   className="w-full"
                   defaultValue={guestAdultsInputValue}
                   onChange={(value) =>
-                    handleChangeData(Number(value), 'guestAdults')
+                    handleChangeData(Number(value), "guestAdults")
                   }
                   isdisabled={disabled.guestAdults}
                   max={max}
                   min={min}
-                  label={t('adults')}
-                  desc={t('adult_age')}
+                  label={t("adults")}
+                  desc={t("adult_age")}
                 />
               )}
               {IsShowChildren && (
                 <NcInputNumber
-                  className="w-full mt-6"
+                  className="mt-6 w-full"
                   defaultValue={guestChildrenInputValue}
                   isdisabled={disabled.guestChildren}
                   onChange={(value) =>
-                    handleChangeData(Number(value), 'guestChildren')
+                    handleChangeData(Number(value), "guestChildren")
                   }
                   max={max}
-                  label={t('children')}
-                  desc={t('child_age')}
+                  label={t("children")}
+                  desc={t("child_age")}
                 />
               )}
               {IsShowInfants && (
                 <NcInputNumber
-                  className="w-full mt-6"
+                  className="mt-6 w-full"
                   defaultValue={guestInfantsInputValue}
                   isdisabled={disabled.guestInfants}
                   onChange={(value) =>
-                    handleChangeData(Number(value), 'guestInfants')
+                    handleChangeData(Number(value), "guestInfants")
                   }
                   max={max}
-                  label={t('infants')}
-                  desc={t('infant_age')}
+                  label={t("infants")}
+                  desc={t("infant_age")}
                 />
               )}
-              <div className="flex w-full mt-5">
-                <Button className="w-full text-white " onClick={() => close()}>
-                  {t('apply')}
+              <div className="mt-5 flex w-full">
+                <Button className="w-full text-white" onClick={() => close()}>
+                  {t("apply")}
                 </Button>
               </div>
             </Popover.Panel>

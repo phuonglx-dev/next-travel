@@ -17,14 +17,14 @@ const InputPassWord = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           type={open ? "text" : "password"}
           className={cn(
-            "flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium  placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+            "border-input bg-background ring-offset-background placeholder:text-muted-foreground flex h-11 w-full rounded-md border px-3 py-2 text-sm outline-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:cursor-not-allowed disabled:opacity-50",
             className,
           )}
           ref={ref}
           {...props}
         />
         <div
-          className="absolute right-0 top-0 flex h-11 cursor-pointer items-center justify-center px-3 py-2"
+          className="absolute top-0 right-0 flex h-11 cursor-pointer items-center justify-center px-3 py-2"
           onClick={handleSwitchPassword}
         >
           {open ? (

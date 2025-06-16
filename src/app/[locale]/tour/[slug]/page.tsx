@@ -138,7 +138,7 @@ export default async function TourDetail({
             <span className="ml-2 text-sm text-text1">
               {t("reviews", { number: tour?.reviews || 0 })}
             </span>
-            <div className="mx-2 w-[1px] bg-slate-300 py-2"></div>
+            <div className="mx-2 w-px bg-slate-300 py-2"></div>
             <span className="text-sm">{tour?.locations}</span>
           </div>
           <div className="flex flex-col gap-2 text-sm md:hidden">
@@ -174,14 +174,14 @@ export default async function TourDetail({
         </div>
         <div className="pt-5 lg:pt-0">
           <div className="flex flex-col gap-5 pb-5 lg:flex-row">
-            <div className="h-[15rem] w-full md:h-[25rem] lg:h-[32.5625rem] lg:w-2/3">
+            <div className="h-60 w-full md:h-100 lg:h-130.25 lg:w-2/3">
               <TourGallery
                 images_small={tour.gallery}
                 images_medium={tour.gallery}
                 title={tour.title}
               />
             </div>
-            <div className=" h-full w-full rounded-lg bg-gray-100 p-5 lg:h-[32.5625rem] lg:w-1/3">
+            <div className=" h-full w-full rounded-lg bg-gray-100 p-5 lg:h-130.25 lg:w-1/3">
               <div>
                 {tour.featured && (
                   <span className="inline-block px-3 py-2 mb-1 text-xs font-semibold text-white bg-red-500 rounded shadow">

@@ -28,16 +28,16 @@ const CookieConsentBanner = () => {
   }
 
   return (
-    <div className="fixed bottom-3 left-0 z-[9999] transition-all md:left-3">
+    <div className="fixed bottom-3 left-0 z-9999 transition-all md:left-3">
       <div className="p-5 bg-white rounded-lg shadow-2xl">
         <div className="mb-3 text-text1">
-          <p>This website uses cookies to improve your browsing experience.</p>
+          <p className="">This website uses cookies to improve your browsing experience.</p>
           <p>Please click Accept to continue.</p>
         </div>
         <div className="flex flex-col gap-2 md:flex-row md:gap-5">
           <button
             onClick={handleAccept}
-            className="w-full py-2 text-white rounded-md border-1 bg-primary md:w-1/2"
+            className="w-full py-2 text-white rounded-md border bg-primary md:w-1/2"
           >
             Accept
           </button>

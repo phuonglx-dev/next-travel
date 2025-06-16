@@ -67,7 +67,7 @@ export default async function PostHeader({ data }: { data: any }) {
                       {created_by}
                     </Link>
                   </div>
-                  <div className="w-[1px] bg-slate-300 py-0.5"></div>
+                  <div className="w-px bg-slate-300 py-0.5"></div>
                 </>
               )}
               {created_at && (

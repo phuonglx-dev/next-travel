@@ -71,14 +71,14 @@ export default function LanguageSwitcher({ ismobile = false }: ILangageProps) {
                 />
               </div>
               <IconChevronDown
-                className="top-[1px] fill-text1 ml-1 h-2 w-2 transition duration-200 group-data-[state=open]:rotate-180"
+                className="top-px fill-text1 ml-1 h-2 w-2 transition duration-200 group-data-[state=open]:rotate-180"
                 aria-hidden="true"
               />
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="end"
-            className="hidden lg:block relative py-0 px-0 z-100 min-w-[10rem] cursor-pointer ">
+            className="hidden lg:block relative py-0 px-0 z-100 min-w-40 cursor-pointer ">
             <div className="flex flex-col">
               {data.map((item, index) => (
                 <div
@@ -133,7 +133,7 @@ export default function LanguageSwitcher({ ismobile = false }: ILangageProps) {
                   </div>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="relative py-0 px-0 z-100 min-w-[10rem] cursor-pointer ">
+              <AccordionContent className="relative py-0 px-0 z-100 min-w-40 cursor-pointer ">
                 <div className="flex flex-col">
                   {data.map((item, index) => (
                     <div

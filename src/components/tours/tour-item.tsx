@@ -17,7 +17,7 @@ export default function TourItem({ data }: any) {
   let total_price_final = CurrencyFormatter("en-US", data.price.amount).replace(/\s*USD\s*/, '$');
 
   return (
-    <div className="border-t-[1px] border-slate-400 py-5 lg:rounded-lg lg:border-[1px] lg:p-5">
+    <div className="border-t border-slate-400 py-5 lg:rounded-lg lg:border lg:p-5">
       <div className="flex items-start gap-5">
         <div className="flex flex-row flex-1 gap-2 lg:gap-5">
           <Link
@@ -27,7 +27,7 @@ export default function TourItem({ data }: any) {
           >
             {/* <Image
               src={data.img_small ? data.img_small : data.cover_image}
-              className="object-cover w-full h-[70%] lg:h-full rounded-lg aspect-[163/143]"
+              className="object-cover w-full h-[70%] lg:h-full rounded-lg aspect-163/143"
               width={1000}
               height={1000}
               alt={data.title}
@@ -36,7 +36,7 @@ export default function TourItem({ data }: any) {
               <ImageCustom
                 src={data?.image.src}
                 image_alt={data?.title ? data?.title : ""}
-                className="aspect-[163/143] rounded-lg"
+                className="aspect-163/143 rounded-lg"
               />
             )}
           </Link>

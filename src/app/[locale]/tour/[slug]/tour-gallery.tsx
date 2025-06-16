@@ -54,7 +54,7 @@ export default function TourGallery({
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="swiper-left !hidden w-1/5 lg:!block"
+        className="swiper-left hidden! w-1/5 lg:block!"
       >
         {data_small.map((item:any) => {
           if (item.url) {

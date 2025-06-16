@@ -72,7 +72,7 @@ export default async function Blog({
               <Link
                 key={destination.id}
                 href={`/${`blog/${destination.title}`}`}
-                className="relative min-h-[8rem] w-full  cursor-pointer rounded-lg bg-red-400 md:min-h-[14rem]"
+                className="relative min-h-32 w-full  cursor-pointer rounded-lg bg-red-400 md:min-h-56"
                 aria-label={destination?.title}
               >
                 {destination.image && (

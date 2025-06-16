@@ -89,7 +89,7 @@ export default function ModalDatePicker({
       <Dialog open={openModal} onOpenChange={onOpenChange}>
         <DialogTrigger>
           {" "}
-          <div className="flex w-full items-center gap-5 rounded-full border-[1px] border-gray-300 bg-white px-6 py-3 ">
+          <div className="flex w-full items-center gap-5 rounded-full border border-gray-300 bg-white px-6 py-3 ">
             <IconCalendar className="w-4 h-4 fill-text1" />
             <span className=" text-text1">
               {date

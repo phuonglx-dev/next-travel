@@ -23,7 +23,7 @@ export default async function HeaderDesktop({
    
     <>
       <header
-        className={` left-0 top-0 z-50 w-full border-b-[1px] border-slate-200  py-2 transition delay-100 ease-in-out lg:py-4`}
+        className={` left-0 top-0 z-50 w-full border-b border-slate-200  py-2 transition delay-100 ease-in-out lg:py-4`}
       >
         <div className="container ">
           <div className="flex h-full w-full items-center justify-between">

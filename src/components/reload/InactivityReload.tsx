@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog';
-import { Button } from '../ui/button';
+import React, { useEffect } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import { Button } from "../ui/button";
 
 const inactivityDuration: number = 60 * 60 * 1000; // 15 minutes in milliseconds
 
@@ -38,16 +38,16 @@ const InactivityReload: React.FC<InactivityReloadProps> = ({ children }) => {
 
   useEffect(() => {
     // Add event listeners for user activity when the component mounts
-    document.addEventListener('mousemove', handleUserActivity);
-    document.addEventListener('keydown', handleUserActivity);
+    document.addEventListener("mousemove", handleUserActivity);
+    document.addEventListener("keydown", handleUserActivity);
 
     // Initialize the inactivity timer when the component mounts
     resetInactivityTimer();
 
     // Clean up event listeners when the component unmounts
     return () => {
-      document.removeEventListener('mousemove', handleUserActivity);
-      document.removeEventListener('keydown', handleUserActivity);
+      document.removeEventListener("mousemove", handleUserActivity);
+      document.removeEventListener("keydown", handleUserActivity);
       clearTimeout(inactivityTimeout);
     };
   }, []);
@@ -59,7 +59,8 @@ const InactivityReload: React.FC<InactivityReloadProps> = ({ children }) => {
         {/* <DialogTrigger className={`${classNameTitle}`}>{header}</DialogTrigger> */}
         {/* max-w-full max-h-full inset-0 translate-x-0 translate-y-0 */}
         <DialogContent
-          className={`top-0 md:w-[500px] sm:max-w-full  sm:max-h-full md:h-auto`}>
+          className={`top-0 sm:max-h-full sm:max-w-full md:h-auto md:w-[500px]`}
+        >
           <DialogHeader>
             <DialogTitle className="mb-2">Session expired</DialogTitle>
             <div>
@@ -69,7 +70,8 @@ const InactivityReload: React.FC<InactivityReloadProps> = ({ children }) => {
             <Button
               type="submit"
               onClick={() => window.location.reload()}
-              className="w-full text-base outline-none font-bold text-white">
+              className="w-full text-base font-bold text-white outline-hidden"
+            >
               Refresh Page
             </Button>
           </DialogHeader>

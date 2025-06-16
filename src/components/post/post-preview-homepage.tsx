@@ -17,7 +17,7 @@ export default function PostPreview({
   return (
     <div className={`flex flex-col ${className}`}>
       <div className="relative">
-        <div className="w-full min-h-[22rem] relative">
+        <div className="w-full min-h-88 relative">
           {image && (
             <CoverImage
               title={title}
@@ -40,7 +40,7 @@ export default function PostPreview({
             </p>
           </div>
           <Link href="#" aria-label={title}>
-            <div className="z-[5] modal rounded-md cursor-pointer"></div>
+            <div className="z-5 modal rounded-md cursor-pointer"></div>
           </Link>
         </div>
       </div>

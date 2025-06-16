@@ -74,7 +74,7 @@ export default function ChangePassword(props: IChangePasswordProps) {
         <IconMark />
       </div>
       <h2 className="mb-5 text-xl font-semibold">Change Password</h2>
-      <div className="flex flex-col gap-5 rounded-lg border-[1px] border-slate-300 p-5">
+      <div className="flex flex-col gap-5 rounded-lg border border-slate-300 p-5">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             {/* <FormField

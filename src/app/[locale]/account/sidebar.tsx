@@ -40,7 +40,7 @@ export default function SideBarAccount(props: ISideBarAccountProps) {
       className={`${pathname.slice(1) !== 'account' ? 'hidden' : ''
         } lg:block w-full lg:w-1/4`}
     >
-      <div className="sticky top-20 left-0 py-5 border-[1px] border-slate-300 rounded-lg">
+      <div className="sticky top-20 left-0 py-5 border border-slate-300 rounded-lg">
         <Image
           src="https://res.cloudinary.com/drnf8u8vq/image/upload/c_pad,w_400/v1737656277/nextravel/travelers/pexels-vladbagacian-2819587_lprpt9.jpg"
           alt="user"
@@ -62,7 +62,7 @@ export default function SideBarAccount(props: ISideBarAccountProps) {
                 </Link>
               </div>
               {index + 1 !== dataSidebar.length && (
-                <div className="my-2 mx-8 border-b-[1px] border-slate-300"></div>
+                <div className="my-2 mx-8 border-b border-slate-300"></div>
               )}
             </div>
           ))}

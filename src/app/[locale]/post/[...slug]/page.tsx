@@ -101,7 +101,7 @@ async function RelatedPost({ slug }: { slug: string }) {
   return (
     <div className="py-8">
       <h2 className="mb-4 text-2xl font-bold">{t("related_articles")}</h2>
-      <ul className="grid-layout grid-layout--primary !p-0">
+      <ul className="grid-layout grid-layout--primary p-0!">
         {relatedPosts.map((post) => {
           return <PostPreview key={post?.title} props={post} />;
         })}

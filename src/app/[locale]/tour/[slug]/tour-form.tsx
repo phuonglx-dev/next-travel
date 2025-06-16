@@ -79,7 +79,7 @@ export default function TourForm({ data }: { data: any }) {
             keyD={datePickerKey}
             autoFocus={focus}
             name="date"
-            className="h-full w-full rounded-md border-[1px] border-gray-400 !py-2 text-base font-medium text-text1"
+            className="h-full w-full rounded-md border border-gray-400 py-2! text-base font-medium text-text1"
             placeholder={t("select_date")}
             formatDate="EEEE, MMM dd, yyyy"
             is_value_global
@@ -100,7 +100,7 @@ export default function TourForm({ data }: { data: any }) {
             // min={data.min_person}
             max={20}
             min={1}
-            fieldClassName="bg-white !py-2 border-[1px] border-gray-400"
+            fieldClassName="bg-white py-2! border border-gray-400"
           ></GuestsInput>
         </div>
         <Button

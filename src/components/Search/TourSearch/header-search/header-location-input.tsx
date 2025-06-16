@@ -30,7 +30,6 @@ export interface ValueProps {
   slug?: string;
 }
 
-
 const removeExtraSpace = (s: string) => s.trim().split(/ +/).join(" ");
 const HeaderLocationInput: FC<LocationInputProps> = ({
   autoFocus = false,
@@ -66,8 +65,6 @@ const HeaderLocationInput: FC<LocationInputProps> = ({
     }
   }, [valueLocation, selected]);
 
- 
-
   const handleSelection = (value: ValueProps) => {
     setSelected(value);
     handleSelect(value);
@@ -82,19 +79,19 @@ const HeaderLocationInput: FC<LocationInputProps> = ({
   return (
     <div className={`relative flex ${className}`}>
       <div
-        className={`relative z-50 flex flex-1  flex-shrink-0 cursor-pointer items-center space-x-3 text-left focus:outline-none `}
+        className={`relative z-50 flex flex-1 shrink-0 cursor-pointer items-center space-x-3 text-left focus:outline-hidden`}
       >
-        <div className="flex-grow">
+        <div className="grow">
           <Combobox value={selected || ""} onChange={handleSelection}>
             <div>
-              <Combobox.Button className="w-full border rounded-full cursor-pointer border-slate-300 ">
-                <div className="[ nc-hero-field-padding ] relative flex w-full cursor-default items-center gap-x-1 overflow-hidden rounded-full bg-white !px-5 text-left sm:text-sm">
+              <Combobox.Button className="w-full cursor-pointer rounded-full border border-slate-300">
+                <div className="[ nc-hero-field-padding ] relative flex w-full cursor-default items-center gap-x-1 overflow-hidden rounded-full bg-white px-5! text-left sm:text-sm">
                   <div className="pr-3 text-neutral-300 dark:text-neutral-400">
-                    <IconSearch className="w-4 h-4 fill-slate-700 lg:h-4 lg:w-4" />
+                    <IconSearch className="h-4 w-4 fill-slate-700 lg:h-4 lg:w-4" />
                   </div>
 
                   <Combobox.Input
-                    className="w-full text-sm font-semibold leading-5 text-gray-900 border-none outline-none placeholder-color focus:ring-0"
+                    className="placeholder-color w-full border-none text-sm leading-5 font-semibold text-gray-900 outline-hidden focus:ring-0"
                     placeholder={t("search_for_place")}
                     autoComplete="off"
                     displayValue={(person: ValueProps) => person?.title || ""}
@@ -121,16 +118,15 @@ const HeaderLocationInput: FC<LocationInputProps> = ({
                 leaveTo="opacity-0"
                 // afterLeave={() => setQuery("")}
               >
-                <Combobox.Options className="absolute mt-1  w-full !list-none  overflow-auto rounded-md bg-white !p-0 text-base  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm lg:w-[130%]">
-                 
+                <Combobox.Options className="ring-opacity-5 absolute mt-1 w-full list-none! overflow-auto rounded-md bg-white p-0! text-base shadow-lg ring-1 ring-black focus:outline-hidden sm:text-sm lg:w-[130%]">
                   {dataSearch &&
                     debouncedQuery === "" &&
                     dataSearch.map((person) => (
                       <Combobox.Option
                         key={`${person.id}${person.title}`}
                         className={({ active }) =>
-                          `relative !mb-0 cursor-pointer select-none py-3 pl-10 pr-4 ${
-                            active ? "bg-slate-100 text-text1" : " text-text1"
+                          `relative mb-0! cursor-pointer py-3 pr-4 pl-10 select-none ${
+                            active ? "text-text1 bg-slate-100" : "text-text1"
                           }`
                         }
                         value={person}
@@ -151,10 +147,10 @@ const HeaderLocationInput: FC<LocationInputProps> = ({
                             </div>
                             {selected ? (
                               <span
-                                className={`absolute inset-y-0 left-0 flex items-center pl-3 text-primary`}
+                                className={`text-primary absolute inset-y-0 left-0 flex items-center pl-3`}
                               >
                                 <IconCheck
-                                  className="w-5 h-5"
+                                  className="h-5 w-5"
                                   aria-hidden="true"
                                 />
                               </span>
@@ -163,7 +159,6 @@ const HeaderLocationInput: FC<LocationInputProps> = ({
                         )}
                       </Combobox.Option>
                     ))}
-                  
                 </Combobox.Options>
               </Transition>
             </div>

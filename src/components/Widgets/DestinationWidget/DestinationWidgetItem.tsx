@@ -31,7 +31,7 @@ export default function DestinationWidgetItem({
             {item.count} tours
           </div>
         </div>
-        <div className="z-[5] rounded-md"></div>
+        <div className="z-5 rounded-md"></div>
       </div>
     </Link>
   );

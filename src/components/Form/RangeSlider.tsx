@@ -1,5 +1,5 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 const YourComponent: React.FC = () => {
   const [minprice, setMinprice] = useState<number>(0);
@@ -47,8 +47,8 @@ const YourComponent: React.FC = () => {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center">
-      <div className="relative max-w-xl w-full">
+    <div className="flex h-screen items-center justify-center">
+      <div className="relative w-full max-w-xl">
         <div>
           <input
             type="range"
@@ -57,7 +57,7 @@ const YourComponent: React.FC = () => {
             max={max}
             onChange={mintrigger}
             value={minprice}
-            className="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+            className="pointer-events-none absolute z-20 h-2 w-full cursor-pointer appearance-none opacity-0"
           />
 
           <input
@@ -67,34 +67,37 @@ const YourComponent: React.FC = () => {
             max={max}
             onChange={maxtrigger}
             value={maxprice}
-            className="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+            className="pointer-events-none absolute z-20 h-2 w-full cursor-pointer appearance-none opacity-0"
           />
 
           <div className="relative z-10 h-2">
-            <div className="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+            <div className="absolute top-0 right-0 bottom-0 left-0 z-10 rounded-md bg-gray-200"></div>
 
             <div
-              className="absolute z-20 top-0 bottom-0 rounded-md bg-green-300"
-              style={{ right: `${maxthumb}%`, left: `${minthumb}%` }}></div>
+              className="absolute top-0 bottom-0 z-20 rounded-md bg-green-300"
+              style={{ right: `${maxthumb}%`, left: `${minthumb}%` }}
+            ></div>
 
             <div
-              className="absolute z-30 w-6 h-6 top-0 left-0 bg-green-300 rounded-full -mt-2"
-              style={{ left: `${minthumb}%` }}></div>
+              className="absolute top-0 left-0 z-30 -mt-2 h-6 w-6 rounded-full bg-green-300"
+              style={{ left: `${minthumb}%` }}
+            ></div>
 
             <div
-              className="absolute z-30 w-6 h-6 top-0 right-0 bg-green-300 rounded-full -mt-2"
-              style={{ right: `${maxthumb}%` }}></div>
+              className="absolute top-0 right-0 z-30 -mt-2 h-6 w-6 rounded-full bg-green-300"
+              style={{ right: `${maxthumb}%` }}
+            ></div>
           </div>
         </div>
 
-        <div className="flex items-center justify-between pt-5 space-x-4 text-sm text-gray-700">
+        <div className="flex items-center justify-between space-x-4 pt-5 text-sm text-gray-700">
           <div>
             <input
               type="text"
               maxLength={5}
               onChange={mintrigger}
               value={minprice}
-              className="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none"
+              className="w-24 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-center focus:border-yellow-400 focus:outline-hidden"
             />
           </div>
           <div>
@@ -103,7 +106,7 @@ const YourComponent: React.FC = () => {
               maxLength={5}
               onChange={maxtrigger}
               value={maxprice}
-              className="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none"
+              className="w-24 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-center focus:border-yellow-400 focus:outline-hidden"
             />
           </div>
         </div>
