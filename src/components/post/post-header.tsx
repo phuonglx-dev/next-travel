@@ -1,3 +1,4 @@
+"use client";
 import CoverImage from "./cover-image";
 import PostTitle from "./post-title";
 import Date from "../common/date";
@@ -11,7 +12,7 @@ import BreadCrumb from "./breadcrumb";
 const ShareButton = dynamic(() => import("../common/share"), {
   ssr: false,
 });
-export default async function PostHeader({ data }: { data: any }) {
+export default  function PostHeader({ data }: { data: any }) {
   const { title, image, short, created_at, created_by, user_slug } = data;
   // let category_ids =
   //   categories && categories.length > 0 && categories.map((item) => item.id);
@@ -57,7 +58,7 @@ export default async function PostHeader({ data }: { data: any }) {
             <div className="flex gap-x-2">
               {created_by && user_slug && (
                 <>
-                  <div className="text-sm text-text1">
+                  <div className="text-text1 text-sm">
                     By{" "}
                     <Link
                       href={{ pathname: `/author/${user_slug}` }}
@@ -71,7 +72,7 @@ export default async function PostHeader({ data }: { data: any }) {
                 </>
               )}
               {created_at && (
-                <div className="text-sm text-text3">
+                <div className="text-text3 text-sm">
                   <Date dateString={created_at} />
                 </div>
               )}
@@ -84,8 +85,8 @@ export default async function PostHeader({ data }: { data: any }) {
           {data?.tableContent && data?.tableContent !== "" && (
             <>
               <div className="mt-3 flex items-center gap-x-2 rounded-lg">
-                <IconBookBookmark className="h-5 w-5 fill-text1" />
-                <h3 className="text-left text-lg font-bold ">Table content</h3>
+                <IconBookBookmark className="fill-text1 h-5 w-5" />
+                <h3 className="text-left text-lg font-bold">Table content</h3>
               </div>
               <div
                 className="table_content"

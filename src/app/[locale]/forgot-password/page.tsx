@@ -9,7 +9,7 @@ export default function ForgotPasswordDetail({
   params,
   searchParams,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   searchParams: any;
 }) {
   const callback = searchParams?.callback || null;

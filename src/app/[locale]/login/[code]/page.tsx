@@ -4,8 +4,12 @@ import { getServerSession } from "next-auth";
 import ClientLoginWrapper from "./ClientLoginWrapper";
 import { notFound, redirect } from "next/navigation";
 
-const SignInPage = async ({ params }: { params: { code: string } }) => {
-  const { code } = params;
+const SignInPage = async ({
+  params,
+}: {
+  params: Promise<{ code: string }>;
+}) => {
+  const { code } = await params;
   //   const session = await getServerSession(authOptions);
   return notFound();
   // if (code === "facebook" || code === "google" || code === "close") {

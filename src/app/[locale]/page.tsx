@@ -6,8 +6,8 @@ import TourWidget from "@/components/Widgets/TourWidget";
 import ReviewWidget from "@/components/Widgets/ReviewWidget";
 import { Suspense } from "react";
 
-export default async function Home({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
 
 
   return (

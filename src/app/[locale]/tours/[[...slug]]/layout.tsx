@@ -11,25 +11,22 @@ export interface IToursSearchProps {
   soft_by: string | undefined;
   page: string | undefined;
 }
-type Params = { locale: string; slug: string[] };
-
+type Params = Promise<{ locale: string; slug?: string[] }>;
 
 export default async function ToursLayout({
   children,
   params,
-  
 }: {
   children: React.ReactNode;
   params: Params;
 }) {
   const t = await getTranslations("tour");
   // if (!slug || slug.length < 0) return notFound();
-  
+
   //const duration = await getDuration();
   //console.log("durations", durations);
-  
 
-  const breadcrumb_title = "France / Paris / Tours"
+  const breadcrumb_title = "France / Paris / Tours";
 
   return (
     <>
@@ -47,11 +44,9 @@ export default async function ToursLayout({
         {/* <TourPreview destination={destination} /> */}
 
         <div className="container">
-         
-            <h1 className="mb-5 text-xl font-bold text-text1 md:text-[1.6rem]">
-              All Tours and Activities in Paris
-            </h1>
-          
+          <h1 className="text-text1 mb-5 text-xl font-bold md:text-[1.6rem]">
+            All Tours and Activities in Paris
+          </h1>
 
           <div className="flex flex-col items-start gap-5 lg:flex-row">
             <div className="w-full lg:w-1/4">

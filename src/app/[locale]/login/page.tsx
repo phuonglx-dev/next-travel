@@ -15,7 +15,7 @@ export default async function Login({
   params,
   searchParams,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   searchParams: any;
 }) {
   const t = await getTranslations("account");
