@@ -85,35 +85,35 @@ function ReadySearchBox({
 
   return (
     <div
-      className={`relative flex w-full border-b-[1px] border-slate-200 bg-white  text-text1  lg:rounded-full lg:border-b-0 `}
+      className={`text-text1 relative flex w-full border-b border-slate-200 bg-white lg:rounded-full lg:border-b-0`}
     >
       <div
-        className={`relative z-10 flex flex-1  flex-shrink-0 cursor-pointer items-center space-x-3 text-left focus:outline-none `}
+        className={`relative z-10 flex flex-1 shrink-0 cursor-pointer items-center space-x-3 text-left focus:outline-hidden`}
       >
-        <div className="flex-grow">
+        <div className="grow">
           <Combobox value={value || ""} onChange={handleSelect}>
             <Combobox.Input
               id="search"
               value={value}
               onChange={handleChange}
               // disabled={!ready}
-              className={`placeholder-color  h-11 w-full rounded-md border border-input bg-background px-3 pl-2 pr-12 text-sm outline-none ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium  placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 ${error ? "!border-destructive" : ""}`}
+              className={`placeholder-color border-input bg-background ring-offset-background placeholder:text-muted-foreground h-11 w-full rounded-md border px-3 pr-12 pl-2 text-sm outline-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:cursor-not-allowed disabled:opacity-50 ${error ? "!border-destructive" : ""}`}
               placeholder={"Search location"}
               autoComplete="off"
             />
             {!!value ? (
               <div
-                className="absolute top-0 right-0 flex items-center justify-center w-12 h-full"
+                className="absolute top-0 right-0 flex h-full w-12 items-center justify-center"
                 onClick={() => {
                   setValue("");
                   onSelectAddress("", null, null);
                 }}
               >
-                <IconMark className="w-4 h-4 fill-secondary" />
+                <IconMark className="fill-secondary h-4 w-4" />
               </div>
             ) : (
-              <div className="absolute top-0 right-0 flex items-center justify-center w-12 h-full">
-                <IconSearch className="w-4 h-4 fill-black" />
+              <div className="absolute top-0 right-0 flex h-full w-12 items-center justify-center">
+                <IconSearch className="h-4 w-4 fill-black" />
               </div>
             )}
 
@@ -123,14 +123,14 @@ function ReadySearchBox({
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Combobox.Options className="absolute mt-1 max-h-96 w-full !list-none overflow-auto rounded-md bg-white !p-0 text-base  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              <Combobox.Options className="ring-opacity-5 absolute mt-1 max-h-96 w-full list-none! overflow-auto rounded-md bg-white p-0! text-base shadow-lg ring-1 ring-black focus:outline-hidden sm:text-sm">
                 {status === "OK" &&
                   data.map(({ place_id, description }) => (
                     <Combobox.Option
                       key={`${place_id}`}
                       className={({ active }) =>
-                        `relative cursor-pointer select-none px-4 py-3 ${
-                          active ? "bg-slate-100 text-text1" : " text-text1"
+                        `relative cursor-pointer px-4 py-3 select-none ${
+                          active ? "text-text1 bg-slate-100" : "text-text1"
                         }`
                       }
                       value={description}
@@ -141,7 +141,7 @@ function ReadySearchBox({
                             <span>
                               <IconMapPin className="fill-secondary" />
                             </span>
-                            <span className={`block  font-bold`}>
+                            <span className={`block font-bold`}>
                               {description}
                             </span>
                           </div>

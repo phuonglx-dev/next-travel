@@ -4,13 +4,13 @@ import appConfig from "@/config";
 import { isJSON } from "@/lib/utils";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 const Redirect = ({ params }: Props) => {
   useEffect(() => {
     const loadPage = async () => {
-      const { slug } = params;
+      const { slug } = await params;
 
       if (!slug || slug.length < 0) {
         window.location.href = `${appConfig.SITE_URL}`;
@@ -70,7 +70,7 @@ const Redirect = ({ params }: Props) => {
   }, [params]);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 top-0 z-[999999999999] h-screen w-screen bg-white"></div>
+    <div className="fixed top-0 right-0 bottom-0 left-0 z-999999999999 h-screen w-screen bg-white"></div>
   );
 };
 

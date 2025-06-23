@@ -47,7 +47,7 @@ export default function NavItem({ menuItem }: INavItemProps) {
                 )}
 
                 {item.children && item.children.length > 0 && (
-                  <ul className="submenu absolute left-0 top-full z-[10000] grid w-[100px] gap-3 rounded-lg bg-white p-4 text-text1 shadow-lg md:w-[200px] md:grid-cols-1 lg:w-[300px]">
+                  <ul className="submenu text-text1 absolute top-full left-0 z-10000 grid w-[100px] gap-3 rounded-lg bg-white p-4 shadow-lg md:w-[200px] md:grid-cols-1 lg:w-[300px]">
                     {item.children &&
                       item.children.length > 0 &&
                       item.children.map((child) => (
@@ -88,14 +88,14 @@ const ListItem = ({
         href={`${href}`}
         aria-label={title}
         className={cn(
-          "mb-0 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-primary focus:bg-accent focus:text-primary",
+          "hover:bg-accent hover:text-primary focus:bg-accent focus:text-primary transition-colors mb-0 block space-y-1 rounded-md p-3 leading-none no-underline outline-hidden select-none",
           className,
         )}
         {...props}
       >
         <div className="cursor-pointer">
-          <div className="font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="leading-none font-medium">{title}</div>
+          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
             {children}
           </p>
         </div>

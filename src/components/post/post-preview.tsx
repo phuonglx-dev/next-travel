@@ -25,7 +25,7 @@ export default function PostPreview({
   return (
     <div className="flex flex-col">
       <div
-        className="relative w-full min-h-[13rem] overflow-hidden text-center rounded-lg"
+        className="relative w-full min-h-52 overflow-hidden text-center rounded-lg"
         style={{ cursor: 'pointer' }}>
         {image && (
           <div className="w-full h-full rounded-lg group">

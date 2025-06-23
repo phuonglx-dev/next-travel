@@ -8,13 +8,13 @@ import { getTranslations } from "next-intl/server";
 import NextIntlProvider from "@/components/providers/NextIntlProvider";
 import ButtonLogins from "@/components/login/buttonLogin";
 
-export interface ILoginProps { }
+export interface ILoginProps {}
 
 export default async function Signup({
   params,
   searchParams,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   searchParams: any;
 }) {
   const t = await getTranslations("account");
@@ -26,8 +26,8 @@ export default async function Signup({
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900">
+      <div className="w-full max-w-md space-y-8 rounded-lg bg-white p-8 shadow-md dark:bg-gray-800">
         <NextIntlProvider>
           <SignUpSendEmail callback={callback} />
         </NextIntlProvider>
@@ -53,14 +53,19 @@ export default async function Signup({
             )}
           </div>
 
-          
           <div className="mt-4">
             {t("agree_account")}{" "}
-            <Link href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
               {t("terms_and_conditions")}
             </Link>
             ,{" "}
-            <Link href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
               {t("privacy_policy")}
             </Link>
           </div>

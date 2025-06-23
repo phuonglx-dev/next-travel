@@ -31,7 +31,7 @@ const Timeline = (props: Props) => {
             <div
               className={
                 index !== items.length - 1
-                  ? `after:absolute after:h-full after:w-[1px] after:bg-gray-400 ${
+                  ? `after:absolute after:h-full after:w-px after:bg-gray-400 ${
                       mode === "left"
                         ? "after:left-[5.5px]"
                         : "after:right-[5.5px]"

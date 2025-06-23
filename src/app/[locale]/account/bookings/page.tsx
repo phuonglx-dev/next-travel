@@ -8,7 +8,7 @@ import {
   IconCalendar,
   IconCartShopping,
   IconMark,
-  IconUser
+  IconUser,
 } from "@/components/icons";
 import { usePathname, useRouter } from "next/navigation";
 import { dataSidebar } from "../sidebar";
@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import orders from "@/data/orderData";
 
-export interface IBookingsProps { }
+export interface IBookingsProps {}
 
 export default function Bookings(props: IBookingsProps) {
   const router = useRouter();
@@ -34,10 +34,11 @@ export default function Bookings(props: IBookingsProps) {
 
   return (
     <div
-      className={`${dataSidebar.findIndex((data) => data.href === pathname.slice(1)) === -1
-          ? "hidden "
+      className={`${
+        dataSidebar.findIndex((data) => data.href === pathname.slice(1)) === -1
+          ? "hidden"
           : ""
-        } w-full lg:block lg:w-3/4`}
+      } w-full lg:block lg:w-3/4`}
     >
       <div
         className="flex justify-end lg:hidden"
@@ -47,7 +48,7 @@ export default function Bookings(props: IBookingsProps) {
       </div>
       <h2 className="mb-5 text-xl font-semibold">My bookings</h2>
       <div
-        className="flex flex-col gap-5 rounded-lg border-[1px] border-slate-300 p-5"
+        className="flex flex-col gap-5 rounded-lg border border-slate-300 p-5"
         ref={scrollRef}
       >
         {bookings &&
@@ -58,7 +59,7 @@ export default function Bookings(props: IBookingsProps) {
               <div key={booking.id}>
                 <BookingDetail booking={booking} />
                 {index + 1 !== bookings.data.length && (
-                  <div className="my-2 border-b-[1px] border-slate-300" />
+                  <div className="my-2 border-b border-slate-300" />
                 )}
               </div>
             );
@@ -77,11 +78,7 @@ export default function Bookings(props: IBookingsProps) {
   );
 }
 
-const BookingDetail = ({
-  booking,
-}: {
-  booking: any;
-}) => {
+const BookingDetail = ({ booking }: { booking: any }) => {
   let tour = booking.tour || {};
   const t = useTranslations("tour");
   const router = useRouter();
@@ -99,43 +96,43 @@ const BookingDetail = ({
           <ImageCustom
             src={tour?.image || ""}
             image_alt={tour?.title ? tour.title : ""}
-            className="aspect-[163/143] h-full rounded-lg"
+            className="aspect-163/143 h-full rounded-lg"
           />
         </Link>
         <div className="w-2/3">
           <div className="flex items-center gap-5">
             <span
               className={cn(
-                "w-max rounded-sm border px-2 py-0.5 text-sm uppercase",
+                "w-max rounded-xs border px-2 py-0.5 text-sm uppercase",
                 booking.order_status === OrderStatus.CONFIRMED
                   ? "text-green-500"
-                  : "text-red-500"
+                  : "text-red-500",
               )}
             >
               {booking.order_status === OrderStatus.CONFIRMED && "CONFIRMED"}
               {booking.order_status === OrderStatus.CANCELLED && "CANCELLED"}
             </span>
-            <div className="text-sm text-text1">{booking.order_no}</div>
+            <div className="text-text1 text-sm">{booking.order_no}</div>
           </div>
           <Link
             href={`#`}
-            className="mb-3 line-clamp-2 flex-1 text-left font-bold text-text1"
+            className="text-text1 mb-3 line-clamp-2 flex-1 text-left font-bold"
             aria-label={tour?.title ? tour.title : ""}
           >
             {tour?.title ? tour.title : ""}
           </Link>
           <div className="flex flex-col gap-2 pb-5">
             <div className="flex items-center gap-2 text-sm">
-              <IconUser className="h-4 w-4 fill-secondary" />
+              <IconUser className="fill-secondary h-4 w-4" />
               <span>
                 {booking?.adults}{" "}
                 {booking?.option?.tour?.group ? t("travels") : t("adults")}{" "}
                 {booking?.children > 0
                   ? ", " +
-                  String(booking?.children) +
-                  " " +
-                  t("children") +
-                  ", "
+                    String(booking?.children) +
+                    " " +
+                    t("children") +
+                    ", "
                   : ""}
                 {booking?.infants > 0
                   ? booking?.infants + " " + t("infants")
@@ -143,23 +140,23 @@ const BookingDetail = ({
               </span>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <IconCalendar className="h-4 w-4 fill-secondary" />
+              <IconCalendar className="fill-secondary h-4 w-4" />
               <span>
                 {convertToAnyTimezone(booking.depart_date).format(
-                  "dddd, MMMM DD, YYYY • hh:mm A"
+                  "dddd, MMMM DD, YYYY • hh:mm A",
                 )}{" "}
               </span>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <IconCartShopping className="h-4 w-4 fill-secondary" />
+              <IconCartShopping className="fill-secondary h-4 w-4" />
               <span>Luxury sedan car</span>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <IconMark className="h-4 w-4 fill-primary" />
+              <IconMark className="fill-primary h-4 w-4" />
               <span>
                 Free cancellation before{" "}
                 {convertToAnyTimezone(booking.free_cancel_date).format(
-                  "dddd, MMMM DD, YYYY • hh:mm A"
+                  "dddd, MMMM DD, YYYY • hh:mm A",
                 )}
               </span>
             </div>
@@ -171,7 +168,7 @@ const BookingDetail = ({
           <Button
             type="submit"
             onClick={handleViewOrderDetail}
-            className="h-auto w-full text-sm font-normal text-white bg-primary hover:bg-primary-dark"
+            className="bg-primary hover:bg-primary-dark h-auto w-full text-sm font-normal text-white"
           >
             View detail
           </Button>

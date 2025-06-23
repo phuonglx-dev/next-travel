@@ -18,19 +18,20 @@ export default async function Tours({
   params,
   searchParams,
 }: {
-  params: { locale: string; slug?: string[] };
-  searchParams: IToursSearchProps;
+  params: Promise<{ locale: string; slug?: string[] }>;
+  searchParams: Promise<IToursSearchProps>;
 }) {
   const t = await getTranslations("tour");
 
   const toursData = tourData;
   console.log("filter", params);
+  const param = await params;
 
   // Check if the slug parameter's first element is "3".
-  const isGridView = params.slug && params.slug[0] === "3";
+  const isGridView = param.slug && param.slug[0] === "3";
 
   return (
-    <div className="w-full lg:w-3/4 ">
+    <div className="w-full lg:w-3/4">
       {isGridView ? (
         <TourGrid data={toursData.data} />
       ) : (

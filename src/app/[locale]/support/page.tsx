@@ -16,58 +16,52 @@ export const metadata: Metadata = {
 export default async function SupportPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   return (
-    
-      <div>
-                  <PageHeader
-                      title="Contact Us"
-                      sub_title="We’re here to help and answer any questions you might have."
-                      img="https://res.cloudinary.com/drnf8u8vq/image/upload/v1738730453/nextravel/uganda_ylddjc.webp"
-                  />
-                  <div className="container mx-auto px-4 py-8 space-y-8">
+    <div>
+      <PageHeader
+        title="Contact Us"
+        sub_title="We’re here to help and answer any questions you might have."
+        img="https://res.cloudinary.com/drnf8u8vq/image/upload/v1738730453/nextravel/uganda_ylddjc.webp"
+      />
+      <div className="container mx-auto space-y-8 px-4 py-8">
         <div className="flex flex-col gap-5 md:flex-row md:gap-12">
-          <div className="flex-1 w-full md:w-1/3">
-            <div className="w-full h-full px-3 py-8 text-center bg-gray-100 rounded-md">
-              <IconMessageSmile className="w-6 h-6 mx-auto mb-3 fill-secondary" />
+          <div className="w-full flex-1 md:w-1/3">
+            <div className="h-full w-full rounded-md bg-gray-100 px-3 py-8 text-center">
+              <IconMessageSmile className="fill-secondary mx-auto mb-3 h-6 w-6" />
               <h3 className="mb-2 text-lg font-semibold"> Chat support</h3>
-              <div className="mb-5 text-text1">
+              <div className="text-text1 mb-5">
                 Our support team is just a click away.
               </div>
 
-               <div
-                      className="flex cursor-pointer items-center justify-center gap-2 text-secondary"
-                     
-                    >
-                      <span>Click to open chat </span>
-                      <IconChevronRight className="h-4 w-4 fill-secondary" />
-                    </div>
+              <div className="text-secondary flex cursor-pointer items-center justify-center gap-2">
+                <span>Click to open chat </span>
+                <IconChevronRight className="fill-secondary h-4 w-4" />
+              </div>
             </div>
           </div>
-          <div className="flex-1 w-full md:w-1/3">
-            <div className="w-full h-full px-3 py-8 text-center bg-gray-100 rounded-md">
-              <IconEnvelope className="w-6 h-6 mx-auto mb-3 fill-secondary" />
+          <div className="w-full flex-1 md:w-1/3">
+            <div className="h-full w-full rounded-md bg-gray-100 px-3 py-8 text-center">
+              <IconEnvelope className="fill-secondary mx-auto mb-3 h-6 w-6" />
               <h3 className="mb-2 text-lg font-semibold">Email support</h3>
-              <div className="mb-5 text-text1">
+              <div className="text-text1 mb-5">
                 {`Send us an email and we'll get back to you soon.`}
               </div>
-              <div className="flex items-center justify-center gap-2 text-secondary">
+              <div className="text-secondary flex items-center justify-center gap-2">
                 <span>contact@joombooking.com</span>
-                <IconChevronRight className="w-4 h-4 fill-secondary" />
+                <IconChevronRight className="fill-secondary h-4 w-4" />
               </div>
             </div>
           </div>
-          <div className="flex-1 w-full md:w-1/3">
-            <div className="w-full h-full px-3 py-8 text-center bg-gray-100 rounded-md">
-              <IconPhoneVolume className="w-6 h-6 mx-auto mb-3 fill-secondary" />
+          <div className="w-full flex-1 md:w-1/3">
+            <div className="h-full w-full rounded-md bg-gray-100 px-3 py-8 text-center">
+              <IconPhoneVolume className="fill-secondary mx-auto mb-3 h-6 w-6" />
               <h3 className="mb-2 text-lg font-semibold">Call us</h3>
-              <div className="mb-5 text-text1">
+              <div className="text-text1 mb-5">
                 English only and in case of emergency
               </div>
-              <div
-                className="flex items-center justify-center gap-2 text-secondary"
-              >
+              <div className="text-secondary flex items-center justify-center gap-2">
                 <span>
                   Whatsapp :{" "}
                   <a
@@ -78,7 +72,7 @@ export default async function SupportPage({
                     +84 912348149
                   </a>
                 </span>
-                <IconChevronRight className="w-4 h-4 fill-secondary" />
+                <IconChevronRight className="fill-secondary h-4 w-4" />
               </div>
             </div>
           </div>

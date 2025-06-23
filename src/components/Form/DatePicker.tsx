@@ -169,7 +169,7 @@ export function DatePicker({
         <Button
           variant={"outline"}
           className={cn(
-            "!hover:bg-transparent [ nc-hero-field-padding ] relative w-[280px]  flex-shrink-0 justify-start gap-x-2 text-left font-normal",
+            "!hover:bg-transparent [ nc-hero-field-padding ] relative w-[280px]  shrink-0 justify-start gap-x-2 text-left font-normal",
             !date && "text-muted-foreground",
             className,
           )}
@@ -203,7 +203,7 @@ export function DatePicker({
       <PopoverContent
         align={"start"}
         autoFocus={true}
-        className="w-full p-0 lg:w-[100%]"
+        className="w-full p-0 lg:w-full"
       >
         <Calendar
           prices={prices}

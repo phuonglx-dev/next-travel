@@ -25,7 +25,7 @@ export default async function SearchBooking(props: ISearchBookingProps) {
             View, Change or cancel your booking easily online
           </p>
         </div>
-        <div className="mb-5 rounded-lg border-[1px] border-secondary bg-transparent_secondary p-5">
+        <div className="mb-5 rounded-lg border border-secondary bg-transparent_secondary p-5">
           <h2 className="font-bold text-neutral-900">Have an account?</h2>
           <div className="text-left">
             Click to{" "}

@@ -1,9 +1,5 @@
 "use client";
-import {
-  IconCarLight,
-  IconCheck,
-  IconMapPin
-} from "@/components/icons";
+import { IconCarLight, IconCheck, IconMapPin } from "@/components/icons";
 import { Combobox, Transition } from "@headlessui/react";
 import React, { useState, FC, Fragment } from "react";
 import ClearDataButton from "./ClearDataButton";
@@ -54,8 +50,6 @@ const LocationInput: FC<LocationInputProps> = ({
       );
     });
 
-  
-
   const handleSelection = (value: ValueProps) => {
     setSelected(value);
     handleSelect(value);
@@ -71,27 +65,27 @@ const LocationInput: FC<LocationInputProps> = ({
   return (
     <div className={`relative flex ${className}`}>
       <div
-        className={`relative z-10 flex flex-1  flex-shrink-0 cursor-pointer items-center space-x-3 text-left focus:outline-none `}
+        className={`relative z-10 flex flex-1 shrink-0 cursor-pointer items-center space-x-3 text-left focus:outline-hidden`}
       >
-        <div className="flex-grow">
+        <div className="grow">
           <Combobox value={selected || ""} onChange={handleSelection}>
             <div>
               <Combobox.Button className="PopoverContent w-full cursor-pointer">
                 <div className="[ nc-hero-field-padding ] relative flex w-full cursor-default items-center gap-x-1 overflow-hidden rounded-full bg-white text-left sm:text-base">
                   <div className="text-neutral-300 dark:text-neutral-400">
-                    <IconMapPin className="h-5 w-5 fill-primary lg:h-7 lg:w-7" />
+                    <IconMapPin className="fill-primary h-5 w-5 lg:h-7 lg:w-7" />
                   </div>
 
                   <div className="flex w-full flex-col items-start justify-start gap-1 pr-2">
                     <span
-                      className={`font-semibold  ${
+                      className={`font-semibold ${
                         error ? "text-red-500" : "text-text1"
                       }`}
                     >
                       {t("where_to")}
                     </span>
                     <Combobox.Input
-                      className="placeholder-color w-full border-none text-base leading-5 text-gray-900 outline-none focus:ring-0"
+                      className="placeholder-color w-full text-base leading-5 text-gray-900 outline-hidden focus:ring-0"
                       placeholder={t("search_for_place")}
                       autoComplete="off"
                       displayValue={(person: ValueProps) => person?.title || ""}
@@ -117,18 +111,16 @@ const LocationInput: FC<LocationInputProps> = ({
                 leave="transition ease-in duration-100"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
-                afterLeave={() => setQuery("")}
               >
-                <Combobox.Options className="absolute mt-1 max-h-96 w-full !list-none overflow-auto rounded-md bg-white !p-0 text-base  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-base lg:w-[200%]">
-                  
+                <Combobox.Options className="ring-opacity-5 absolute mt-1 max-h-96 w-full list-none! overflow-auto rounded-md bg-white p-0! text-base shadow-lg ring-1 ring-black focus:outline-hidden sm:text-base lg:w-[200%]">
                   {dataSearch &&
                     debouncedQuery === "" &&
                     dataSearch.map((person) => (
                       <Combobox.Option
                         key={`${person.id}${person.title}`}
                         className={({ active }) =>
-                          `relative !mb-0 cursor-pointer select-none py-3 pl-10 pr-4 ${
-                            active ? "bg-slate-100 text-text1" : " text-text1"
+                          `relative mb-0! cursor-pointer py-3 pr-4 pl-10 select-none ${
+                            active ? "text-text1 bg-slate-100" : "text-text1"
                           }`
                         }
                         value={person}
@@ -149,7 +141,7 @@ const LocationInput: FC<LocationInputProps> = ({
                             </div>
                             {selected ? (
                               <span
-                                className={`absolute inset-y-0 left-0 flex items-center pl-3 text-primary`}
+                                className={`text-primary absolute inset-y-0 left-0 flex items-center pl-3`}
                               >
                                 <IconCheck
                                   className="h-5 w-5"
@@ -161,7 +153,6 @@ const LocationInput: FC<LocationInputProps> = ({
                         )}
                       </Combobox.Option>
                     ))}
-                  
                 </Combobox.Options>
               </Transition>
             </div>

@@ -107,7 +107,7 @@ export function DatePicker({
         <Button
           variant={"outline"}
           className={cn(
-            "PopoverContent [ nc-hero-field-padding ] relative w-[280px] flex-shrink-0 justify-start text-left font-normal hover:bg-transparent ",
+            "PopoverContent [ nc-hero-field-padding ] relative w-[280px] shrink-0 justify-start text-left font-normal hover:bg-transparent ",
             !date && "text-muted-foreground",
 
             className,
@@ -137,7 +137,7 @@ export function DatePicker({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent autoFocus={true} className="w-full p-0 lg:w-[100%]">
+      <PopoverContent autoFocus={true} className="w-full p-0 lg:w-full">
         <Calendar
           mode="single"
           selected={date}

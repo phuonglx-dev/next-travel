@@ -105,7 +105,7 @@ export default function TourFilter({ duration }: ToursFilterProps) {
                 clear
               />
             </div>
-            <div className="my-6 h-[1px] bg-slate-300"></div>
+            <div className="my-6 h-px bg-slate-300"></div>
 
             <div>
               <h2 className="mb-3 font-bold text-text1">{t("price")}</h2>
@@ -123,7 +123,7 @@ export default function TourFilter({ duration }: ToursFilterProps) {
               </div>
             </div>
 
-            <div className="my-6 h-[1px] bg-slate-300"></div>
+            <div className="my-6 h-px bg-slate-300"></div>
 
             <div className="filter-spacing">
               <div className="header-container mb-5 mt-5">
@@ -151,7 +151,7 @@ export default function TourFilter({ duration }: ToursFilterProps) {
               </div>
             </div>
 
-            <div className="my-6 h-[1px] bg-slate-300"></div>
+            <div className="my-6 h-px bg-slate-300"></div>
             <RatingFilter />
           </div>
         </div>

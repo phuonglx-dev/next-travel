@@ -26,7 +26,7 @@ export default function GridPost({ widget }: IDestinationWidgetItemProps) {
               } mb-4`} /* Adds bottom margin for spacing */
             >
               <div className="relative">
-                <div className="relative min-h-[22rem] w-full">
+                <div className="relative min-h-88 w-full">
                   {item.image && (
                     <CoverImage
                       title={item.title}
@@ -34,7 +34,7 @@ export default function GridPost({ widget }: IDestinationWidgetItemProps) {
                       image_alt={item.image.image_alt}
                     />
                   )}
-                  <div className="absolute bottom-0 left-0 right-0 z-10 rounded-b-md bg-gradient-to-t from-black/60 to-transparent p-4">
+                  <div className="absolute bottom-0 left-0 right-0 z-10 rounded-b-md bg-linear-to-t from-black/60 to-transparent p-4">
                     {" "}
                     {/* Adds padding and gradient */}
                     <div className="mt-1 text-lg font-semibold text-white">
@@ -48,7 +48,7 @@ export default function GridPost({ widget }: IDestinationWidgetItemProps) {
                     </div>
                   </div>
                   <Link href="#" aria-label={item.title}>
-                    <div className="z-[5]  cursor-pointer rounded-md"></div>
+                    <div className="z-5  cursor-pointer rounded-md"></div>
                   </Link>
                 </div>
               </div>

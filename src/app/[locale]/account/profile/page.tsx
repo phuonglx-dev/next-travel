@@ -122,7 +122,7 @@ export default function App(props: IAppProps) {
         <IconMark />
       </div>
       <h2 className="mb-5 text-xl font-semibold">Personal Information</h2>
-      <div className="flex flex-col gap-5 rounded-lg border-[1px] border-slate-300 p-5">
+      <div className="flex flex-col gap-5 rounded-lg border border-slate-300 p-5">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-x-5">

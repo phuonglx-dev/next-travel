@@ -23,7 +23,7 @@ export default function ButtonLogins({ callback }: ILoginWithEmailProps) {
   return (
     <div className="flex items-center justify-center gap-5">
       <button
-        className="flex w-1/3 cursor-pointer justify-center rounded-lg border-[1px] border-black px-2 py-3 text-center hover:bg-slate-200"
+        className="flex w-1/3 cursor-pointer justify-center rounded-lg border border-black px-2 py-3 text-center hover:bg-slate-200"
         aria-label="Log in with Google"
         onClick={handleLoginGoogle}
       >
@@ -31,7 +31,7 @@ export default function ButtonLogins({ callback }: ILoginWithEmailProps) {
       </button>
       <button
         aria-label="Log in with Facebook"
-        className="flex w-1/3 cursor-pointer justify-center rounded-lg border-[1px] border-black px-2 py-3 text-center hover:bg-slate-200"
+        className="flex w-1/3 cursor-pointer justify-center rounded-lg border border-black px-2 py-3 text-center hover:bg-slate-200"
         onClick={handleLoginFaceBook}
       >
         {loadingFaceBook ? <LoadingSpinner /> : <IconFaceBook className="w-6 h-6 fill-blue-600" />}

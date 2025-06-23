@@ -21,9 +21,9 @@ export interface IReviewsSearchProps {
 const Reviews = async ({
   searchParams,
 }: {
-  searchParams: IReviewsSearchProps;
+  searchParams: Promise<IReviewsSearchProps>;
 }) => {
-  const { page } = searchParams;
+  const { page } = await searchParams;
 
   const reviews = reviewData;
 
